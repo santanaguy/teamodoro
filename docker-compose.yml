@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/home/app/teamodoro
+      - node_modules:/home/app/teamodoro/node_modules
+    ports:
+      - 4200:4200
+volumes:
+  node_modules:
