@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl } from "@angular/forms";
+import { Store } from '@ngrx/store';
+import {State } from '../state';
+import {creatingTimer} from '../actions/timer-actions';
 
 @Component({
   selector: 'app-create-timer',
@@ -14,7 +17,7 @@ export class CreateTimerComponent implements OnInit {
   formGroup: FormGroup;
   name: FormControl;
 
-  constructor(private formBuilder: FormBuilder, ) {
+  constructor(private store: Store<State>) {
     this.hours = new FormControl('00', [Validators.required, Validators.min(0), Validators.pattern('\\d*')]);
     this.minutes = new FormControl('30' , [Validators.required, Validators.min(0), Validators.pattern('\\d*')]);
     this.seconds = new FormControl('00', [Validators.required, Validators.min(0), Validators.pattern('\\d*')]);
@@ -42,6 +45,6 @@ export class CreateTimerComponent implements OnInit {
   }
 
   onSubmit(){
-
+    this.store.dispatch(creatingTimer({hours: this.hours.value, minutes: this.minutes.value, seconds: this.seconds.value, name: this.name.value}));
   }
 }
