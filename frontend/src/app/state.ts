@@ -7,7 +7,15 @@ export interface Timer {
     name: string | null;
 }
 
+export interface TimerStatus{
+    hour:number;
+    minute: number;
+    second: number;
+    timestampUnix: number;
+}
+
 export interface State{
     currentTimer:Timer | undefined,
+    currentTimerStatus: TimerStatus | undefined,
     router: RouterReducerState<SerializedRouterStateSnapshot>
 }

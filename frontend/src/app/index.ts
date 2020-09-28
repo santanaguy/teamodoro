@@ -5,5 +5,6 @@ import * as TimerReducers from './reducers/timer-reducers';
 
 export const reducers: ActionReducerMap<State> = {
     router: routerReducer,
-    currentTimer: TimerReducers.creatingTimerReducer
+    currentTimerStatus: TimerReducers.timerStatusReducer,
+    currentTimer: TimerReducers.timerReducer
 };

@@ -7,7 +7,30 @@ type CreateTimerProps = {
   name: string;
 };
 
+type TimerTickProps = {
+  elapsedMS:number
+};
+
+type TimerStartProps = {
+  hour:number,
+  minute:number,
+  second:number
+}
+
 export const creatingTimer = createAction(
-  '[Create Timer] Creating',
+  '[Timer] Creating',
   props<CreateTimerProps>()
+);
+
+export const startedTimer = createAction(
+  '[Timer] Started', props<TimerStartProps>()
+);
+
+export const timerTick = createAction(
+  '[Timer] Tick',
+  props<TimerTickProps>()
+);
+
+export const timerStopped = createAction(
+  '[Timer] Stop'
 );

@@ -22,12 +22,14 @@ import { MatCardModule, MatCard } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {reducers} from './index';
 import * as Effects from './effects/timer-effects';
+import { CurrentTimerComponent } from './current-timer/current-timer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateTimerComponent,
-    NoTimerComponent
+    NoTimerComponent,
+    CurrentTimerComponent
   ],
   imports: [
     BrowserModule,
