@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { Timer } from '../state';
 
 type CreateTimerProps = {
   hours: number;
@@ -12,9 +13,9 @@ type TimerTickProps = {
 };
 
 type TimerStartProps = {
-  hour:number,
-  minute:number,
-  second:number
+  hours:number,
+  minutes:number,
+  seconds:number
 }
 
 export const creatingTimer = createAction(
@@ -33,4 +34,12 @@ export const timerTick = createAction(
 
 export const timerStopped = createAction(
   '[Timer] Stop'
+);
+
+export const timerResumed = createAction(
+  '[Timer] Resume'
+);
+
+export const timerReset = createAction(
+  '[Timer] Reset', props<Timer>()
 );

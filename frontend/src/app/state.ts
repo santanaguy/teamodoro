@@ -5,17 +5,23 @@ export interface Timer {
     minutes: number;
     seconds: number;
     name: string | null;
+    baseTimestamp: number;
 }
 
 export interface TimerStatus{
-    hour:number;
-    minute: number;
-    second: number;
+    hours:number;
+    minutes: number;
+    seconds: number;
     timestampUnix: number;
+    state: TimerState;
+}
+
+export enum TimerState{
+    Stopped, Running, Finished
 }
 
 export interface State{
-    currentTimer:Timer | undefined,
-    currentTimerStatus: TimerStatus | undefined,
+    currentTimer:Timer,
+    currentTimerStatus: TimerStatus,
     router: RouterReducerState<SerializedRouterStateSnapshot>
 }
